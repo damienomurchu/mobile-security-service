@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/aerogear/mobile-security-service/pkg/config"
-	"github.com/aerogear/mobile-security-service/pkg/web"
+	"github.com/aerogear/mobile-security-service/pkg/web/router"
 	"github.com/aerogear/mobile-security-service/pkg/web/apps"
 	dotenv "github.com/joho/godotenv"
 	"github.com/labstack/echo"
@@ -24,7 +24,7 @@ func init() {
 func main() {
 	config := config.Get()
 
-	e := web.NewRouter(config)
+	e := router.NewRouter(config)
 
 	initHandlers(e, config)
 
@@ -66,5 +66,5 @@ func initHandlers(e *echo.Echo, c config.Config) {
 	appsHandler := apps.NewHTTPHandler(e, appsService)
 
 	// Setup routes
-	web.SetAppRoutes(apiGroup, appsHandler)
+	router.SetAppRoutes(apiGroup, appsHandler)
 }

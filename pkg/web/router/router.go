@@ -1,4 +1,4 @@
-package web
+package router
 
 import (
 	"github.com/aerogear/mobile-security-service/pkg/config"
