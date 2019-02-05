@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/aerogear/mobile-security-service/pkg/config"
+	"github.com/aerogear/mobile-security-service/pkg/web"
 	"github.com/aerogear/mobile-security-service/pkg/web/apps"
 	"github.com/aerogear/mobile-security-service/pkg/web/middleware"
 	dotenv "github.com/joho/godotenv"
@@ -23,12 +24,16 @@ func init() {
 
 func main() {
 	config := config.Get()
-	e := echo.New()
+	staticFilesDir := config.StaticFilesDir
+	apiRoutePrefix := config.ApiRoutePrefix
+
+	//e := echo.New()
+	e := web.NewRouter(staticFilesDir, apiRoutePrefix)
 
 	// Load middleware
 	middleware.Init(e, config)
 
-	initHandlers(e)
+	initHandlers(e, config)
 
 	// start webserver
 	if err := e.Start(config.ListenAddress); err != nil {
@@ -57,12 +62,17 @@ func initLogger(level, format string) {
 }
 
 // Invoke handlers, services and repositories here
-func initHandlers(e *echo.Echo) {
+func initHandlers(e *echo.Echo, c config.Config) {
+	// Prefix and version api
+	apiRoutePrefix := c.ApiRoutePrefix
+	apiVersionPrefix := c.ApiVersionPrefix
+	apiGroup := e.Group(apiRoutePrefix + apiVersionPrefix)
+
 	// App handler setup
 	appsPostgreSQLRepository := apps.NewPostgreSQLRepository()
 	appsService := apps.NewService(appsPostgreSQLRepository)
 	appsHandler := apps.NewHTTPHandler(e, appsService)
 
-	// Define /app routes
-	e.GET("/apps", appsHandler.GetApps)
+	// Setup routes
+	web.SetupAppsRoute(apiGroup, appsHandler)
 }
