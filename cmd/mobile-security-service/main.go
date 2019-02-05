@@ -56,10 +56,9 @@ func initLogger(level, format string) {
 
 // Invoke handlers, services and repositories here
 func initHandlers(e *echo.Echo, c config.Config) {
-	// Prefix and version api
+	// Prefix api routes
 	apiRoutePrefix := c.ApiRoutePrefix
-	apiVersionPrefix := c.ApiVersionPrefix
-	apiGroup := e.Group(apiRoutePrefix + apiVersionPrefix)
+	apiGroup := e.Group(apiRoutePrefix)
 
 	// App handler setup
 	appsPostgreSQLRepository := apps.NewPostgreSQLRepository()

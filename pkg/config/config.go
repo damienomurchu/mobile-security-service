@@ -14,7 +14,6 @@ type Config struct {
 	CORS           CORSConfig
 	StaticFilesDir string
 	ApiRoutePrefix string
-	ApiVersionPrefix string
 }
 
 type CORSConfig struct {
@@ -33,7 +32,6 @@ func Get() Config {
 		},
 		StaticFilesDir: getEnv("STATIC_FILES_DIR", ""),
 		ApiRoutePrefix: "/api", //should start with a "/",
-		ApiVersionPrefix: "/v1",
 	}
 }
 

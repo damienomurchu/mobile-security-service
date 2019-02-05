@@ -17,7 +17,6 @@ func TestGet(t *testing.T) {
 		},
 		StaticFilesDir: "",
 		ApiRoutePrefix: "/api",
-		ApiVersionPrefix: "/v1",
 	}
 
 	tests := []struct {
@@ -41,7 +40,6 @@ func TestGet(t *testing.T) {
 				},
 				StaticFilesDir: "static",
 				ApiRoutePrefix: "/api",
-				ApiVersionPrefix: "/v1",
 			},
 			envVars: map[string]string{
 				"PORT":                             "4000",
