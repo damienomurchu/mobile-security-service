@@ -27,6 +27,6 @@ func NewRouter(config config.Config) *echo.Echo {
 	return router
 }
 
-func SetupAppsRoute(r *echo.Group, appsHandler *apps.HTTPHandler) {
+func SetAppRoutes(r *echo.Group, appsHandler *apps.HTTPHandler) {
 	r.GET("/apps", appsHandler.GetApps)
 }

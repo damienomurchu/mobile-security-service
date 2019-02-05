@@ -67,5 +67,5 @@ func initHandlers(e *echo.Echo, c config.Config) {
 	appsHandler := apps.NewHTTPHandler(e, appsService)
 
 	// Setup routes
-	web.SetupAppsRoute(apiGroup, appsHandler)
+	web.SetAppRoutes(apiGroup, appsHandler)
 }
