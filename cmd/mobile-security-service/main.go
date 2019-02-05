@@ -4,7 +4,6 @@ import (
 	"github.com/aerogear/mobile-security-service/pkg/config"
 	"github.com/aerogear/mobile-security-service/pkg/web"
 	"github.com/aerogear/mobile-security-service/pkg/web/apps"
-	"github.com/aerogear/mobile-security-service/pkg/web/middleware"
 	dotenv "github.com/joho/godotenv"
 	"github.com/labstack/echo"
 	log "github.com/sirupsen/logrus"
@@ -24,14 +23,8 @@ func init() {
 
 func main() {
 	config := config.Get()
-	staticFilesDir := config.StaticFilesDir
-	apiRoutePrefix := config.ApiRoutePrefix
 
-	//e := echo.New()
-	e := web.NewRouter(staticFilesDir, apiRoutePrefix)
-
-	// Load middleware
-	middleware.Init(e, config)
+	e := web.NewRouter(config)
 
 	initHandlers(e, config)
 
