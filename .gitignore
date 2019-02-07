@@ -1,9 +1,10 @@
 vendor
 .vendor-new
-.vscode
 debug
 .env
 dist
 coverage*.out
 mobile-security-service
 !cmd/mobile-security-service
+.vscode/*
+!.vscode/launch.json
