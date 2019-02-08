@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from './landingpage/Header'
 import AppGrid from "./landingpage/AppGrid";
+import { Button } from 'patternfly-react'; 
 
 class LandingPage extends Component {
   constructor() {
@@ -12,7 +13,8 @@ class LandingPage extends Component {
     return (
       <div className="landingPage">
         <Header />
-        <AppGrid />        
+        <AppGrid />
+        <Button>I'm a teapot</Button>        
       </div>
     );
   }

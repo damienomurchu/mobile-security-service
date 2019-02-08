@@ -9,8 +9,8 @@ class AppGridRows extends Component {
 
   render() {
     return (
-      <div className="appGridRows">
-        <tbody>
+      <>
+        <tbody className="appGridRows">
           <tr>
             <td data-label="Repository Name">Repository 1</td>
             <td data-label="Branches">10</td>
@@ -24,7 +24,7 @@ class AppGridRows extends Component {
             <td data-label="Workspaces">5</td>
           </tr>
         </tbody>
-      </div>
+      </>
     );
   }
 }
