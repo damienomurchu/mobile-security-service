@@ -11,8 +11,10 @@ class AppGrid extends Component {
   render() {
     return (
       <div className="appGrid">
-        <AppGridHeader />
-        <AppGridRows />        
+        <table class="pf-c-table pf-m-grid-md" role="grid" aria-label="This is a simple table example">
+          <AppGridHeader />
+          <AppGridRows /> 
+        </table>               
       </div>
     );
   }

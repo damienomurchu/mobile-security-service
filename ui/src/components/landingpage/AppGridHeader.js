@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class AppGridHeader extends Component {
   constructor() {
@@ -9,7 +9,14 @@ class AppGridHeader extends Component {
   render() {
     return (
       <div className="appGridHeader">
-        
+        <thead>
+          <tr>
+            <th>App</th>
+            <th>No. Deployed Versions</th>
+            <th>No. Clients</th>
+            <th>No. App Startups</th>
+          </tr>
+        </thead>
       </div>
     );
   }

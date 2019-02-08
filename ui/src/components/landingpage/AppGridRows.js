@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import AppGridRow from './AppGridRow'
+import React, { Component } from 'react';
+import AppGridRow from './AppGridRow';
 
 class AppGridRows extends Component {
   constructor() {
@@ -10,8 +10,20 @@ class AppGridRows extends Component {
   render() {
     return (
       <div className="appGridRows">
-        <AppGridRow />
-        <AppGridRow />        
+        <tbody>
+          <tr>
+            <td data-label="Repository Name">Repository 1</td>
+            <td data-label="Branches">10</td>
+            <td data-label="Pull Requests">25</td>
+            <td data-label="Workspaces">5</td>
+          </tr>
+          <tr>
+            <td data-label="Repository Name">Repository 2</td>
+            <td data-label="Branches">10</td>
+            <td data-label="Pull Requests">25</td>
+            <td data-label="Workspaces">5</td>
+          </tr>
+        </tbody>
       </div>
     );
   }
