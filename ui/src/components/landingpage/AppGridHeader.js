@@ -8,8 +8,8 @@ class AppGridHeader extends Component {
 
   render() {
     return (
-      <div className="appGridHeader">
-        <thead>
+      <>
+        <thead className="appGridHeader">
           <tr>
             <th>App</th>
             <th>No. Deployed Versions</th>
@@ -17,7 +17,7 @@ class AppGridHeader extends Component {
             <th>No. App Startups</th>
           </tr>
         </thead>
-      </div>
+      </>
     );
   }
 }

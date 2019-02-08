@@ -12,7 +12,7 @@ class LandingPage extends Component {
     return (
       <div className="landingPage">
         <Header />
-        <AppGrid />        
+        <AppGrid />
       </div>
     );
   }
