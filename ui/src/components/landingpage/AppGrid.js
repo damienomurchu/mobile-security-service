@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import AppGridHeader from "./AppGridHeader";
 import AppGridRows from "./AppGridRows";
+import { Table } from '@patternfly/react-table';
+import SimpleTable from "./SimpleTable";
 
 class AppGrid extends Component {
   constructor() {
@@ -11,10 +13,7 @@ class AppGrid extends Component {
   render() {
     return (
       <div className="appGrid">
-        <table class="pf-c-table pf-m-grid-md" role="grid" aria-label="This is a simple table example">
-          <AppGridHeader />
-          <AppGridRows /> 
-        </table>               
+        <SimpleTable />               
       </div>
     );
   }
