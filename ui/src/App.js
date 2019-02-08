@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import '@patternfly/react-core/dist/styles/base.css';
 import LandingPage from './components/LandingPage'
 
 class App extends Component {
