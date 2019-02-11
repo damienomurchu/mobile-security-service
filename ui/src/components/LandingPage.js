@@ -14,7 +14,7 @@ class LandingPage extends Component {
       <div className="landingPage">
         <Header />
         <AppGrid />
-        <Button>I'm a teapot</Button>        
+        <Button>I'm a patternfly button</Button>        
       </div>
     );
   }
