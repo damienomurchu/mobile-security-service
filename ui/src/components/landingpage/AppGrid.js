@@ -19,18 +19,18 @@ class AppGrid extends Component {
             hover
             columns={[
               {
-                header: { label: 'First Name', formatters: [ Table.sortableHeaderCellFormatter ] },
-                cell: { formatters: [ Table.tableCellFormatter ] },
+                header: { label: 'First Name', formatters: [  ] },
+                cell: { formatters: [  ] },
                 property: 'first_name'
               },
               {
-                header: { label: 'Last Name', formatters: [ Table.sortableHeaderCellFormatter ] },
-                cell: { formatters: [ Table.tableCellFormatter ] },
+                header: { label: 'Last Name', formatters: [  ] },
+                cell: { formatters: [  ] },
                 property: 'last_name'
               },
               {
-                header: { label: 'Username', formatters: [ Table.sortableHeaderCellFormatter ] },
-                cell: { formatters: [ Table.tableCellFormatter ] },
+                header: { label: 'Username', formatters: [  ] },
+                cell: { formatters: [  ] },
                 property: 'username'
               }
             ]}
