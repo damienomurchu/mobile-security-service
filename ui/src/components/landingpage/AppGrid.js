@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import AppGridHeader from "./AppGridHeader";
-import AppGridRows from "./AppGridRows";
-
+import React, { Component } from 'react';
+import AppGridHeader from './AppGridHeader';
+import AppGridRows from './AppGridRows';
+import { Table } from 'patternfly-react';
 
 class AppGrid extends Component {
   constructor() {
@@ -12,10 +12,52 @@ class AppGrid extends Component {
   render() {
     return (
       <div className="appGrid">
-        <table className="pf-c-table pf-m-grid-md" role="grid" aria-label="This is a simple table example">
-          <AppGridHeader />
-          <AppGridRows /> 
-        </table>               
+        <div>
+          <Table.PfProvider
+            striped
+            bordered
+            hover
+            columns={[
+              {
+                header: { label: 'First Name', formatters: [ Table.sortableHeaderCellFormatter ] },
+                cell: { formatters: [ Table.tableCellFormatter ] },
+                property: 'first_name'
+              },
+              {
+                header: { label: 'Last Name', formatters: [ Table.sortableHeaderCellFormatter ] },
+                cell: { formatters: [ Table.tableCellFormatter ] },
+                property: 'last_name'
+              },
+              {
+                header: { label: 'Username', formatters: [ Table.sortableHeaderCellFormatter ] },
+                cell: { formatters: [ Table.tableCellFormatter ] },
+                property: 'username'
+              }
+            ]}
+          >
+            <Table.Header />
+            <Table.Body
+              rows={[
+                {
+                  id: 0,
+                  first_name: 'Dan',
+                  last_name: 'Abramov'
+                },
+                {
+                  id: 1,
+                  first_name: 'Sebastian',
+                  last_name: 'Markbåge'
+                },
+                {
+                  id: 2,
+                  first_name: 'Sophie',
+                  last_name: 'Alpert'
+                }
+              ]}
+              rowKey="id"
+            />
+          </Table.PfProvider>
+        </div>
       </div>
     );
   }
