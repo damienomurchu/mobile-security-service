@@ -22,6 +22,14 @@ LDFLAGS=-ldflags "-w -s -X main.Version=${TAG}"
 setup: setup_githooks
 	@echo Installing application dependencies:
 	dep ensure
+	make build_swagger_api
+
+.PHONY: build_swagger_api
+build_swagger_api:
+	@echo Installing Swagger dep:
+	go get -u github.com/go-swagger/go-swagger/cmd/swagger
+	@echo Updating Swagger api:
+	go generate $(APP_FILE)
 
 .PHONY: setup_githooks
 setup_githooks:

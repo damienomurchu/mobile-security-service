@@ -1,4 +1,21 @@
+// API for Mobile Security Service
+//
+// This is a sample mobile security service server.
+//
+//     Schemes: http, https
+//     Version: 0.1.0
+//     basePath: /api
+//
+//     Consumes:
+//     - application/json
+//
+//     Produces:
+//     - application/json
+//
+// swagger:meta
 package main
+
+//go:generate swagger generate spec -m -o ../../api/swagger.yaml
 
 import (
 	"database/sql"
