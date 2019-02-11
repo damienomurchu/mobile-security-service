@@ -10,17 +10,25 @@ import {
   tableCellFormatter,
   Table,
   TABLE_SORT_DIRECTION
-} from '../index';
-import { MenuItem } from '../../MenuItem';
+} from 'patternfly-react';
+import { MenuItem } from 'patternfly-react';
 import { compose } from 'recompose';
-import { mockRows } from './mockRows';
+//import { mockRows } from './mockRows';
 
+
+const mockRows = [
+  {name: 'mike', height: '178', eye_color: 'blue', gender: 'male', birth_year: '1979', actions: null}, 
+  {name: 'john', height: '175', eye_color: 'green', gender: 'male', birth_year: '1974', actions: null}, 
+  {name: 'mary', height: '180', eye_color: 'red', gender: 'female', birth_year: '1989', actions: null}, 
+  {name: 'fred', height: '175', eye_color: 'brown', gender: 'male', birth_year: '1990', actions: null}, 
+  {name: 'ann', height: '160', eye_color: 'black', gender: 'female', birth_year: '1999', actions: null}, 
+]
 /**
  * Reactabular client side data sorting based on the following api docs:
  * https://reactabular.js.org/#/data/sorting
  */
 
-export class MockClientSortableTable extends React.Component {
+class SampleTable extends React.Component {
   constructor(props) {
     super(props);
 
@@ -256,3 +264,5 @@ export class MockClientSortableTable extends React.Component {
     );
   }
 }
+
+export default SampleTable;
