@@ -14,28 +14,35 @@ const apps = [];
 const sortBy = { direction: SortByDirection.asc, index: 0 };
 
 const initialState = {
-  apps: apps,
-  sortBy: sortBy,
-  columns: columns,
-  isAppsRequestFailed: false,
-  currentUser: 'currentUser',
-  isUserDropdownOpen: false
+  data: {
+    apps: apps,
+    columns: columns,
+    currentUser: 'currentUser'
+  },
+  ui: {
+    isAppsRequestFailed: false,
+    isUserDropdownOpen: false,
+    sortBy: sortBy
+  }
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case REVERSE_SORT:
-      const reversedOrder = state.sortBy.direction === SortByDirection.asc ? SortByDirection.desc : SortByDirection.asc;
+      const reversedOrder =
+        state.ui.sortBy.direction === SortByDirection.asc ? SortByDirection.desc : SortByDirection.asc;
       const index = action.payload.index;
-      const sortedRows = state.apps.sort((a, b) => (a[index] < b[index] ? -1 : a[index] > b[index] ? 1 : 0));
+      const sortedRows = state.data.apps.sort((a, b) => (a[index] < b[index] ? -1 : a[index] > b[index] ? 1 : 0));
       const sortedApps = reversedOrder === SortByDirection.asc ? sortedRows : sortedRows.reverse();
       return {
         ...state,
-        sortBy: {
-          direction: reversedOrder,
-          index: index
+        ui: {
+          sortBy: {
+            direction: reversedOrder,
+            index: index
+          }
         },
-        apps: sortedApps
+        data: { apps: sortedApps }
       };
     case APPS_REQUEST:
       return {

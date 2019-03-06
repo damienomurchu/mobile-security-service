@@ -77,8 +77,8 @@ Header.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    currentUser: state.currentUser,
-    isUserDropdownOpen: state.isUserDropdownOpen
+    currentUser: state.data.currentUser,
+    isUserDropdownOpen: state.ui.isUserDropdownOpen
   };
 }
 

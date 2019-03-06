@@ -52,10 +52,10 @@ AppsTableContainer.propTypes = {
 
 function mapStateToProps (state) {
   return {
-    apps: state.apps,
-    sortBy: state.sortBy,
-    columns: state.columns,
-    isAppsRequestFailed: state.isAppsRequestFailed
+    apps: state.data.apps,
+    columns: state.data.columns,
+    sortBy: state.ui.sortBy,
+    isAppsRequestFailed: state.ui.isAppsRequestFailed
   };
 };
 
